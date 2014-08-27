@@ -1,0 +1,46 @@
+.row
+  .large-12-columns
+    %header
+      %h1 Mars Robot
+.row 
+  .large-12-columns
+    %input{:onclick => "genDivs(10)", :type => "button", :value => "Click to show Grid", :class => "hide-input"}/
+.maincontainer          
+  .row
+    .large-12-columns 
+      .controls
+        %button.rotateitleft rotate left
+        %button.ratateitright rotate right
+        %button.forward forward
+        
+  .row      
+    .large-12-columns    
+      
+      #marker 
+    .large-7-columns{style: "float:left"}
+      #grid25
+    .large-5-columns{style: "float:right"}
+      
+      .large-3-columns
+        %button.up North
+        %button.left West
+        %button.rightclick East
+        %button.down South
+  .row      
+    .large-12-columns
+      .large-6-columns{style: "float:left"}
+        %h3 
+          You are Currently on square 
+          #output
+        #input-second
+          %button.submit-orders submit 
+      
+      .large-6-columns{style: "float:right"}
+        %h3 Output 
+        #output-box
+       
+    
+  / %code#code
+
+
+  

@@ -1,0 +1,31 @@
+!!!
+%html
+  %head
+    %title MarsRobot
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = javascript_include_tag "vendor/modernizr"
+    %script{:src => "http://jqueryrotate.googlecode.com/svn/trunk/jQueryRotate.js"}
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    = csrf_meta_tags
+  %body
+    .off-canvas-wrap{"data-offcanvas" => ""}
+      .inner-wrap.maincanvaswrap
+        / OFF CANVAS MENU BAR
+        
+        %nav.tab-bar.sticky
+          %section.left-small
+          %section.right.tab-bar-section{style: "padding:0px;"}
+            %nav.top-bar{data:{topbar:""}}
+              
+              %section.top-bar-section
+                / Right Nav Section
+              
+        
+            %section.right-small
+              %a.right-off-canvas-toggle.menu-icon    
+                %span
+          %aside.right-off-canvas-menu 
+            %h3.menu-aside-text Welcome to the mars Robot
+            %p.menu-aside-text You can move the robot around by either submitting instructions (left), or by simply moving the arrows around. Try not to fall of the edges! your Instruction can be no more than 100 characters. 
+        = yield
