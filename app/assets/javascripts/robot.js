@@ -1,56 +1,67 @@
 
-function genDivs(v){ 
+function genDivs(){ 
+    var v = document.getElementById("gridsize").value;
+
       console.log(v/2)
       var e = $("#grid25");// whatever you want to append the rows to: 
       for(var i = 0; i < v/2; i++){ 
         var row = document.createElement("div"); 
         row.className = "rowgrid"; 
+        var totalrows = i;
+        
         for(var x = 1; x <= v; x++){ 
             var cell = document.createElement("div"); 
             cell.className = "gridsquare"; 
             // cell.innerText = (i * v) + x;
             cell.setAttribute("id",(i * v) + x)
             row.appendChild(cell); 
+            var totalcells = x ;
         } 
+        // total = ()
         e.append(row); 
-        
+        console.log(v*2 / 2)
+        // n /2 /2 again
       }
+      totalcellsInt = parseInt(totalcells)
+      var gridsquares = totalcells * totalrows + totalcellsInt 
+      var middle = (gridsquares/2) 
+      console.log(middle)
       $(".maincontainer").css('display', 'block')
       $(".hide-input").css('display', 'none')
-      setupmarker()
+      setupmarker(middle,totalcells)
     }
-function setupmarker(){
+function setupmarker(middle, totalcells){
   var marker = $("#marker");
-  var start = document.getElementById(25)
+  var start = document.getElementById(middle)
   startInt = parseInt(start.id)
   $(marker).appendTo(start);
   $("#output").append(startInt);
   $(start).css('background-color', 'green')
   console.log(start)
-  moveMarker(start);
+  moveMarker(start,totalcells);
 }
-function moveMarker(start){
+function moveMarker(start,totalcells){
   var startmove = start
   var marker = $("#marker");
+  console.log(totalcells)
   $(".up").click(function(){
     $("#output").empty();
     startmoveInt = parseInt(startmove.id)
     // startmove.setAttribute("id", startmove.id - 10)
-    var finish = document.getElementById(startmoveInt - 10)
+    var finish = document.getElementById(startmoveInt - totalcells)
     $(marker).appendTo(finish);
-    $("#output").append(startmoveInt - 10)
+    $("#output").append(startmoveInt - totalcells)
     startmove = finish;
     validateMarker(startmove);
   })
   $(".down").click(function(){
     $("#output").empty();
     startmoveInt = parseInt(startmove.id)
-    var finish = document.getElementById(startmoveInt + 10)
-    $("#output").append(startmoveInt + 10)
+    var finish = document.getElementById(startmoveInt + totalcells)
+    $("#output").append(startmoveInt + totalcells)
     $(marker).appendTo(finish);
     startmove = finish
     validateMarker(startmove)
-
     })
   $(".left").click(function(){
     $("#output").empty();
@@ -77,6 +88,7 @@ function validateMarker(startmove){
   if(startmove === null)  {
     alert("you have fallen of the edge transporting you back to the middle")
     window.location.href = window.location.href
+    startmove = 
     setupmarker()
     console.log(startmoveInt)
   }
