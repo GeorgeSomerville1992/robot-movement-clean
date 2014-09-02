@@ -1,8 +1,20 @@
 
-function genDivs(){ 
-    var v = document.getElementById("gridsize").value;
+function smallGrid(){
+  genDivs(10)
+}
 
-      console.log(v/2)
+function mediumGrid(){
+  genDivs(15)
+  
+}
+function largeGrid(){
+  genDivs(20)
+  
+}
+
+
+function genDivs(v){ 
+    // var v = document.getElementById("gridsize").value
       var e = $("#grid25");// whatever you want to append the rows to: 
       for(var i = 0; i < v/2; i++){ 
         var row = document.createElement("div"); 
@@ -18,21 +30,19 @@ function genDivs(){
             var totalcells = x ;
         } 
         // total = ()
-        e.append(row); 
-        console.log(v*2 / 2)
-        // n /2 /2 again
+        e.append(row);
       }
       totalcellsInt = parseInt(totalcells)
-      var gridsquares = totalcells * totalrows + totalcellsInt 
-      var middle = (gridsquares/2) 
-      console.log(middle)
+      var gridsquares = totalcells * totalrows + totalcellsInt
+      var startPoint = Math.floor(Math.random() * gridsquares) + 1
+      console.log(startPoint)
       $(".maincontainer").css('display', 'block')
       $(".hide-input").css('display', 'none')
-      setupmarker(middle,totalcells)
+      setupmarker(startPoint,totalcells)
     }
-function setupmarker(middle, totalcells){
+function setupmarker(startPoint, totalcells){
   var marker = $("#marker");
-  var start = document.getElementById(middle)
+  var start = document.getElementById(startPoint)
   startInt = parseInt(start.id)
   $(marker).appendTo(start);
   $("#output").append(startInt);
