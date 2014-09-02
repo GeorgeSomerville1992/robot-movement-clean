@@ -20,8 +20,9 @@ function genDivs(v){
       setupmarker()
     }
 function setupmarker(){
+  var start = 0
   var marker = $("#marker");
-  var start = document.getElementById(25)
+  start = document.getElementById(25)
   startInt = parseInt(start.id)
   $(marker).appendTo(start);
   $("#output").append(startInt);
@@ -76,9 +77,16 @@ function validateMarker(startmove){
    console.log(startmove)
   if(startmove === null)  {
     alert("you have fallen of the edge transporting you back to the middle")
-    window.location.href = window.location.href
+      window.location.href = window.location.href
+    // $("#output").append(startmoved);
+    // var marker = $("#marker");
+    
+    var startmove = document.getElementById(25)
+    console.log(startmove)
+    $(marker).appendTo(startmove);
     setupmarker()
-    console.log(startmoveInt)
+    // setupmarker(start)
+    // console.log(startmoveInt)
   }
 }
 var marker = $("#marker")
