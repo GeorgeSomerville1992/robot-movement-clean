@@ -4,7 +4,11 @@
       %h1 Mars Robot
 .row 
   .large-12-columns
-    %input{:onclick => "genDivs(10)", :type => "button", :value => "Click to show Grid", :class => "hide-input"}/
+    %h4{:class => "hide-input"} choose your grid size
+    / %input{:onclick => "genDivs()", :type => "button", :value => "submit", :class => "hide-input"}/s
+    %button{:onclick => "smallGrid()", :type => "button", :value => "submit", :class => "hide-input" } Small
+    %button{:onclick => "mediumGrid()", :type => "button", :value => "submit", :class => "hide-input"} Medium
+    %button{:onclick => "largeGrid()", :type => "button", :value => "submit", :class => "hide-input"} Large
 .maincontainer          
   .row
     .large-12-columns 
