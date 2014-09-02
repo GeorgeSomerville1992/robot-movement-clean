@@ -11,8 +11,6 @@ function largeGrid(){
   genDivs(20)
   
 }
-
-
 function genDivs(v){ 
     // var v = document.getElementById("gridsize").value
       var e = $("#grid25");// whatever you want to append the rows to: 
@@ -35,7 +33,6 @@ function genDivs(v){
       totalcellsInt = parseInt(totalcells)
       var gridsquares = totalcells * totalrows + totalcellsInt
       var startPoint = Math.floor(Math.random() * gridsquares) + 1
-      console.log(startPoint)
       $(".maincontainer").css('display', 'block')
       $(".hide-input").css('display', 'none')
       setupmarker(startPoint,totalcells)
@@ -48,13 +45,11 @@ function setupmarker(startPoint, totalcells){
   $(marker).appendTo(start);
   $("#output").append(startInt);
   $(start).css('background-color', 'green')
-  console.log(start)
   moveMarker(start,totalcells);
 }
 function moveMarker(start,totalcells){
   var startmove = start
   var marker = $("#marker");
-  console.log(totalcells)
   $(".up").click(function(){
     $("#output").empty();
     startmoveInt = parseInt(startmove.id)
@@ -102,25 +97,22 @@ function validateMarker(startmove){
     window.location.href = window.location.href
     // $("#output").append(startmoved);
     // var marker = $("#marker");
-    
-    var startmove = document.getElementById(25)
-    console.log(startmove)
-    $(marker).appendTo(startmove);
-    setupmarker()
+    // var startmove = document.getElementById(25)
+    // console.log(startmove)
+    // $(marker).appendTo(startmove);
+    // setupmarker()
     // setupmarker(start)
     // console.log(startmoveInt)
   }
 }
 var marker = $("#marker")
 function directions(){
-
   $(".rotateitleft").click(function () {
     $("#marker").removeClass('rotateright');
     $("#marker ").toggleClass('rotateleft');
     $("#input-second").append("L")
     
   });
-
   $(".ratateitright").click(function() {
     $("#marker").removeClass('rotateleft');
     $("#marker ").toggleClass('rotateright');
@@ -158,7 +150,6 @@ function characterValidation(text){
   //   alert(" you have gon gover 100 resetting...");
   //   window.location.href = window.location.href
   // }
-  console.log(text)
   if(text.length > 100){
     alert(" Input length Must not be over 100 character's ")
     window.location.href = window.location.href
@@ -170,9 +161,7 @@ function characterValidation(text){
  };
 
 $(function(){
-
   initialize()
-
 })
 
 
